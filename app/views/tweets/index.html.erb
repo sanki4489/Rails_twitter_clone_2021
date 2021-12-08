@@ -1,27 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row border border-2 ">
+<div>
+<h5>Home</h5>
+</div>
+</div>
 
-<h1>Tweets</h1>
+<div class="row border border-2">
+  <div class="col col-lg-2" style="padding-top: 20px;">
+    <%= image_tag "user.svg", size: "50x50", class: "rounded-circle" %>
+  </div>
+<div class="col col-lg-10">
+  <p></p>
+  <%= render partial: "tweets/feeds" %>
+</div>
+</div> 
 
-<table>
-  <thead>
-    <tr>
-      <th>Post</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @tweets.each do |tweet| %>
+ <div class="row border border-2">
+  <div class="col col-lg-2" style="padding-top: 20px;">
+    <%= image_tag "user.svg", size: "50x50", class: "rounded-circle" %>
+  </div>
+  <div class="col col-lg-10">
+    <p>User name  <%= tweet.created_at %></p>
+    <p><%= tweet.post %></p> 
+    <%= image_tag "thumbnail.jpg", size: "475x350" %>
+  </div>
+</div> 
+<% end %>
 
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.post %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+
+
+
+
+
+

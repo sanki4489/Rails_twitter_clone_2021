@@ -1,0 +1,7 @@
+<div>
+<%= form_for(@tweet) do |f| %>
+    <%= f.text_area :post, placeholder: "what's happening?", cols: 45, rows: 2 %>
+    <p>Everyone can reply</p>
+    <%= f.submit "Tweet", class: "btn btn-primary rounded-pill" %>
+<% end %>
+</div>
