@@ -17,3 +17,11 @@
 .back-hover:hover {
   background-color: grey;
 }
+.main-page {
+  background-color: whitesmoke;
+  margin-bottom: 5px;
+}
+
+.content {
+  padding-left: 5px;
+}
