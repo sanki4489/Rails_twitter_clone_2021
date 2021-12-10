@@ -1,5 +1,5 @@
 <form class="d-flex" style="margin-bottom: 15px;">
-   <input class="form-control me-2" type="search" placeholder="Search Twitter" aria-label="Search">
+   <input class="form-control me-2" type="search" placeholder="Search Twitter" aria-label="Search" style="border-radius: 30px;">
 </form>
 <div class="main-page">
     <p><b>What's happening</b></p>
@@ -25,22 +25,21 @@
 
 <div class="main-page">
     <p><b>Who to follow</b></p>
-    <hr>
     <div class="row content">
         <div class="col col-lg-2"><%= image_tag "user.svg", size: "30x30" %></div>
         <div class="col col-lg-6">User name</div>
-        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary rounded-pill" %></div>
+        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary btn-sm rounded-pill" %></div>
     </div>
     <div class="row content">
         <div class="col col-lg-2"><%= image_tag "user.svg", size: "30x30" %></div>
         <div class="col col-lg-6">User name</div>
-        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary rounded-pill" %></div>
+        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary btn-sm rounded-pill" %></div>
     </div>
     <div class="row content">
         <div class="col col-lg-2"><%= image_tag "user.svg", size: "30x30" %></div>
         <div class="col col-lg-6">User name</div>
-        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary rounded-pill" %></div>
-    </div>    
+        <div class="col col-lg-4 "><%= button_to "follow", root_path, class: "btn btn-primary btn-sm rounded-pill" %></div>
+    </div>   
 </div>
 
 

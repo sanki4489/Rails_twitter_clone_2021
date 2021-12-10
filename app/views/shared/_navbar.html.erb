@@ -42,23 +42,27 @@
 
       <% if user_signed_in? %>
       <li>
-          <%= link_to edit_user_registration_path, class: "nav-link link-dark" do %>
+          <%= link_to edit_user_registration_path, class: "nav-link link-dark back-hover rounded-pill" do %>
           <%= image_tag "user.svg", size: "30x30" %><%= " #{current_user.username}" %>
           <% end %>
       </li>
       <li>
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link link-dark" do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link link-dark back-hover rounded-pill" do %>
           <%= image_tag "sign-out-alt-solid.svg", size: "30x30" %><%= " Log Out" %>
           <% end %>
       </li>
+      <li>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= link_to "Tweet", new_tweet_path, class: "btn btn-primary rounded-pill" %>
+      </li>
       <% else %>
         <li>
-          <%= link_to new_user_session_path, class: "nav-link link-dark" do %>
+          <%= link_to new_user_session_path, class: "nav-link link-dark back-hover rounded-pill" do %>
           <%= image_tag "sign-in-alt-solid.svg", size: "30x30" %><%= " Sign In" %>
           <% end %>
        </li>
        <li>
-          <%= link_to new_user_registration_path, class: "nav-link link-dark" do %>
+          <%= link_to new_user_registration_path, class: "nav-link link-dark back-hover rounded-pill" do %>
           <%= image_tag "user-plus-solid.svg", size: "30x30" %><%= " sign Up" %>
           <% end %>
       </li>

@@ -1,53 +1,52 @@
 <div class="row main-page">
 <div>
-<h5 class="text-primary">Home</h5>
+<h4 class="text-primary">Home</h4>
 </div>
 </div>
 
-<div class="row main-page">
-  <div class="col col-lg-2" style="padding-top: 20px;">
-    <%= image_tag "user.svg", size: "50x50", class: "rounded-circle" %>
-  </div>
-<div class="col col-lg-10">
-  <p></p>
-  <%= render partial: "tweets/feeds" %>
-</div>
-</div> 
+<% if user_signed_in? %>
+  <div class="row main-page">
+    <div class="col col-lg-2" style="padding-top: 20px;">
+      <%= gravatar_image_tag(current_user.email, size: 40, alt: current_user.name, class: "rounded-circle") %>
+    </div>
+    <div class="col col-lg-10">
+      <p></p>
+      <%= render partial: "tweets/feeds" %>
+    </div>
+  </div> 
+<% end %>
 
 <% @tweets.each do |tweet| %>
  <div class="row main-page">
   <div class="col col-lg-2" style="padding-top: 20px;">
-    <%= image_tag "user.svg", size: "50x50", class: "rounded-circle" %>
+    <%= image_tag "user.png", size: "50x50", class: "rounded-circle" %>
   </div>
   <div class="col col-lg-10">
-    <p><%= tweet.user.name %> <%= tweet.user.username %>  <%= tweet.created_at %></p>
+    <p style="padding-top: 10px;"><%= tweet.user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= tweet.created_at %></p>
+    <p><%= tweet.user.username %></p>
     <p><%= tweet.post %></p>
+    <% if user_signed_in? %>
     <div class="row">
-    <div class="col col-lg-7">
+      <div class="col col-lg-7">
+      </div>
+      <div class="col">
+        <%= link_to tweet do %>
+          <span class="icon"><i class="fas fa-link"></i></span>
+        <% end %>  
+      </div>
+      <div class="col">
+        <%= link_to edit_tweet_path(tweet) do %> 
+          <span class="icon"><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= link_to method: :delete, data: {confirm: "are you sure you want to delete this tweet?"} do %> 
+          <span class="icon"><i class="fas fa-trash" aria-hidden="true"></i></span>
+        <% end %>
+      </div>
     </div>
-    <div class="col">
-      <%= link_to tweet do %>
-        <span class="icon"><i class="fas fa-link"></i></span>
-      <% end %>  
-    </div>
-    <div class="col">
-    <%= link_to edit_tweet_path(tweet) do %> 
-      <span class="icon"><i class="fas fa-pencil-alt" aria-hidden="true"></i></span>
-    <% end %></div>
-    <div class="col">
-    <%= link_to method: :delete, data: {confirm: "are you sure you want to delete this tweet?"} do %> 
-      <span class="icon"><i class="fas fa-trash" aria-hidden="true"></i></span>
-    <% end %></div></div><br>
+    <% end %>
     <%= image_tag "thumbnail.jpg", size: "475x350" %>
   </div>
 </div> 
 <% end %>
-
-
-
-
-
-
-
-
-
