@@ -1,6 +1,6 @@
 <div class="row main-page">
 <div>
-<h5>Home</h5>
+<h5 class="text-primary">Home</h5>
 </div>
 </div>
 
@@ -20,7 +20,7 @@
     <%= image_tag "user.svg", size: "50x50", class: "rounded-circle" %>
   </div>
   <div class="col col-lg-10">
-    <p>User name  <%= tweet.created_at %></p>
+    <p><%= tweet.user.name %> <%= tweet.user.username %>  <%= tweet.created_at %></p>
     <p><%= tweet.post %></p>
     <div class="row">
     <div class="col col-lg-7">
